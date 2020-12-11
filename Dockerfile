@@ -1,6 +1,6 @@
 # Build environment for LineageOS
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Michael Stucki <michael@stucki.io>
 
 
