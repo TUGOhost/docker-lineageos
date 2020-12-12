@@ -1,7 +1,6 @@
 # Build environment for LineageOS
 
 FROM ubuntu:18.04
-MAINTAINER Michael Stucki <michael@stucki.io>
 
 
 ENV \
@@ -15,9 +14,9 @@ ENV \
 
 RUN sed -i 's/main$/main universe/' /etc/apt/sources.list \
  && export DEBIAN_FRONTEND=noninteractive \
- && apt-get update \
- && apt-get upgrade -y \
- && apt-get install -y \
+ && sudo apt-get update \
+ && sudo apt-get upgrade -y \
+ && sudo apt-get install -y \
 # Install build dependencies (source: https://wiki.cyanogenmod.org/w/Build_for_bullhead)
       bc \
       bison \
@@ -63,7 +62,9 @@ RUN sed -i 's/main$/main universe/' /etc/apt/sources.list \
       tig \
       vim \
       wget \
- && rm -rf /var/lib/apt/lists/*
+      p7zip p7zip-rar p7zip-full \
+      python \
+ && sudo rm -rf /var/lib/apt/lists/*
 
 ARG hostuid=1000
 ARG hostgid=1000
